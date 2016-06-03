@@ -84,25 +84,36 @@ A design pattern commonly used is to have a method return a Task<>, but you wish
 
 ```swift
 
-func decodeImage(data: [UInt8]) -> Task<UIImage> {
-  return TaskFactory.Default.start { UIImage(imageFromData: data) }
+func decodeImage(data: NSData) -> Task<UIImage> {
+     return TaskFactory.Default.start { (_) -> UIImage in
+        guard let image = UIImage(data: data) else {
+            throw Exception(
+                "The iamge could not be decoded.",
+                error: nil,
+                description: "Unable to Read Image",
+                reason: "Make sure the image is valid and is of the supported format."
+            )
+        }
+        
+        return image;
+    }
 }
 
-func downloadData(url: NSURL) -> Task<[UInt8]> {
-  // Make web request or something to get the data.
-  return [0, 1, 2, 3, 4]; /// fake data
+func downloadData(url: NSURL) -> Task<NSData> {
+    // Make web request or something to get the data.
+    return Task(result: NSData()); /// already completed task with empty data
 }
 
 func displayImage(url: NSURL) {
-  self.downloadData(url)
-    .continueFor { decodeImage(try $0.value()) }
-    .continueWith(scheduler: TaskSchedulers.Main) { (prevTask) in 
-      do {
-        let image = try prevTask.value();
-        imageView.image = image;
-      } catch {
-        UIelement.text = "Can't decode image.";
-      }
+    self.downloadData(url)
+        .continueFor { self.decodeImage(try $0.value()) }
+        .continueWith(scheduler: TaskSchedulers.Main) { (prevTask) in
+            do {
+                let image = try prevTask.value();
+                imageView.image = image;
+            } catch {
+                UIelement.text = "Can't decode image.";
+            }
     };
 }
 
