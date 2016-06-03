@@ -35,12 +35,32 @@ A task contains a method `continueWith`, which has an argument list similiar to 
 
 #### Examples
 
-Here's a quick example of a "useless" kernel that spins forever on a seperate thread, but supports cancellation.
+Here's a quick example of a useless kernel that spins forever on a seperate thread, but supports cancellation.
 This also shows how to use continuation tasks to schedule onto the Main task scheduler.
 
 ```swift
-func doUselessWork() {
-  TaskFactory.Default.start { (cancelToken) in
+/* Lets pretend we're in a view controller. */
+private var uselessWorkCancelSource: TaskCancellationSource?;
+
+@IBAction func pressedGoButton() {
+  self.uselessWorkCancelSource = TaskCancellationSource();
+  doUselessWork(self.uselessWorkCancelSource!.token)
+    .continueWith(scheduler: TaskSchedulers.Main) {
+      self.uselessWorkCancelSource = nil;
+    };
+}
+
+@IBAction func pressedCancelButton() {  
+  guard let source = uselessWorkCancelSource else {
+    return;
+  }
+  
+  someUIElement.text = "Cancelling...";
+  source.cancel();
+}
+
+func doUselessWork(cancelToken: TaskCancellationToken) -> Task<Void> {
+  return TaskFactory.Default.start(cancellationToken: cancelToken) { (cancelToken) in
     while true {
       /* This will throw the appropatie TaskCancelled error if cancellation has requested. */
       try cancelToken.checkpoint(); 
