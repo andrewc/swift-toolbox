@@ -47,7 +47,7 @@
 		4994AD771D00639900954DBE /* ValueAssociation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4994AD4D1D00639900954DBE /* ValueAssociation.swift */; };
 		4994AD781D00639900954DBE /* WeakCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4994AD4E1D00639900954DBE /* WeakCollection.swift */; };
 		4994AD791D00639900954DBE /* WeakReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4994AD4F1D00639900954DBE /* WeakReference.swift */; };
-		49E92FF21CC483D300E90A0C /* AvidcodeToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 49E92FF11CC483D300E90A0C /* AvidcodeToolbox.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		49E92FF21CC483D300E90A0C /* SwiftToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 49E92FF11CC483D300E90A0C /* SwiftToolbox.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,7 +92,7 @@
 		4994AD4E1D00639900954DBE /* WeakCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakCollection.swift; sourceTree = "<group>"; };
 		4994AD4F1D00639900954DBE /* WeakReference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakReference.swift; sourceTree = "<group>"; };
 		49E92FEE1CC483D300E90A0C /* SwiftToolbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftToolbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		49E92FF11CC483D300E90A0C /* AvidcodeToolbox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AvidcodeToolbox.h; sourceTree = "<group>"; };
+		49E92FF11CC483D300E90A0C /* SwiftToolbox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftToolbox.h; sourceTree = "<group>"; };
 		49E92FF31CC483D300E90A0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -246,7 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				4994AD1C1D00639900954DBE /* Source */,
-				49E92FF11CC483D300E90A0C /* AvidcodeToolbox.h */,
+				49E92FF11CC483D300E90A0C /* SwiftToolbox.h */,
 				49E92FF31CC483D300E90A0C /* Info.plist */,
 			);
 			path = SwiftToolbox;
@@ -259,7 +259,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49E92FF21CC483D300E90A0C /* AvidcodeToolbox.h in Headers */,
+				49E92FF21CC483D300E90A0C /* SwiftToolbox.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
