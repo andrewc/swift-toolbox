@@ -66,3 +66,31 @@ func doUselessWork() {
   }
 }
 ```
+
+A design pattern commonly used is to have a method return a Task<>, but you wish to use its result in existing task.  This is called *task unwapping* and is used by calling `Task<>.continueFor`.
+
+```swift
+
+func decodeImage(data: [UInt8]) -> Task<UIImage> {
+  return TaskFactory.Default.start { UIImage(imageFromData: data) }
+}
+
+func downloadData(url: NSURL) -> Task<[UInt8]> {
+  // Make web request or something to get the data.
+  return [0, 1, 2, 3, 4]; /// fake data
+}
+
+func displayImage(url: NSURL) {
+  self.downloadData(url)
+    .continueFor { decodeImage(try $0.value()) }
+    .continueWith(scheduler: TaskSchedulers.Main) { (prevTask) in 
+      do {
+        let image = try prevTask.value();
+        imageView.image = image;
+      } catch {
+        UIelement.text = "Can't decode image.";
+      }
+    };
+}
+
+```
