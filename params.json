@@ -1,0 +1,6 @@
+{
+  "name": "swift-toolbox",
+  "tagline": "Contains various Swift implementations that can be useful in every project.",
+  "body": "# swift-toolbox\r\nContains various Swift implementations that can be useful in every project.\r\n\r\nThis is still a work in progress, and many of the components in this fraemwork could be broken into several submodules.  But, for now, keeping it all in one.\r\n\r\n## Features\r\n\r\n- [Task Framework for Passing Future Values](SwiftToolbox/Source/Tasks)\r\n\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
