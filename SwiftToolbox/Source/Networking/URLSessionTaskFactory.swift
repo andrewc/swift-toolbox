@@ -8,20 +8,12 @@
 
 import Foundation
 
-public class WebSession {
-    public static let Shared = WebSession(session: NSURLSession.sharedSession());
-    
-    public init(session: NSURLSession = NSURLSession.sharedSession()) {
-        self.session = session;
-    }
-    
-    public let session : NSURLSession;
-    
+public extension NSURLSession {
     public func start(request: NSURLRequest) -> Task<(NSURLResponse, NSData)> {
         return TaskFactory.Default.start { (cancelToken) in
             let continueAsync = TaskKernelAsynchronousCompletion<(NSURLResponse, NSData)>();
             
-            let urlTask = self.session.dataTaskWithRequest(request) { (data, response, error) in
+            let urlTask = self.dataTaskWithRequest(request) { (data, response, error) in
                 if let error = error {
                     continueAsync.result = .Faulted(error);
                     return;
@@ -35,5 +27,4 @@ public class WebSession {
             throw continueAsync;
         };
     }
-    
 }

@@ -4,7 +4,7 @@ There is always a need to pass around a value that may not be available immediat
 
 ### Components of the Framework
 
-- A 'TaskKernel', an object which performs the task's work.
+- A `TaskKernel`, an object which performs the task's work.
 - A `TaskScheduler`, an object which is responsible for starting the kernel, and notifying the result. *The default task scheduler uses GCD global dispatch queue.*
 - A `TaskFactory`, an object which vends new `Task<>`, constructed with defaults of the properties set on it.
 - A method for *cooperative cancellation*, which allows a task's kernel to acknowledge a cancellation request so it can exit gracefully.
@@ -12,13 +12,13 @@ There is always a need to pass around a value that may not be available immediat
 ### The Duties of `Task<>`
 
 - Holds a refernce to the `TaskKernel` that will be doing the work.
-- Keeps track of status of the task's execution, such as `Waiting`, `Running`, `Completed`, etc.
+- Keeps track of the task's execution.
 - Deals with errors thrown by the kernel.
-- Maintanis a list of *continuation tasks*, which are tasks that are started when the task completes.
+- Maintanis a list of *continuation tasks* - tasks that are started when the task completes.
 
 ### Cooperative Cancellation
 
-The use of throwing errors, `TaskCancelled`, is used to convey a cooperative cancellation.  
+Throwing the `TaskCancelled` error is used to convey a cooperative cancellation.  
 
 The class `TaskCancellationSource` provides a property which returns an instance of value-type `TaskCancellationToken`.  The `TaskCancellationToken` is passed to the task when it is created, and subsequently passed to the kernel.  The token is used by the kenel to determine if cancellation has been requested so you can cancel gracefully.
 

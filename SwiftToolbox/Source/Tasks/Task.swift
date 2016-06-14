@@ -21,8 +21,35 @@ public enum Tasks {
         }
     }
 }
+
 /**
  Represents an asynchronous operation.
+ 
+ ----
+ **Cooperative Cancellation**
+ 
+ A cooperative cancellation means the kernel actively acknowledged the cancellation request, and stopped what
+ it was doing at a safe point.  Additionally, cooperative cancellation results in the task entering the `Cancelled` state.
+ 
+ To cooperatively acknowledge a cancellation, your kernel method must exit by throwing
+ an instance of `TaskCancelled` initializing it with the execution context's cancellation token.
+ 
+ Placing the the execution context's cancellation token in the thrown `TaskCancelled` makes it possible to determine which
+ kernel cooperated.  The task will enter the `Cancelled` state.
+ 
+ **Example**
+ 
+ The recommended way to cooperatively cancel is by calling this at opportune times in your kernel:
+ 
+ try context.cancellationToken.checkpoint();
+ 
+ A call to that will throw `TaskCancelleed` for you.
+ 
+ You can also do it manually, if you wish:
+ 
+ throw TaskCancelled(context.cancellationToken)
+ 
+ You can throw `TaskCancelled` even if there is no cancellation request pending and the task will still go into the `Cancelled` state.
  
  - remark:
     This class is responsible for ensuring the execution of a task while providing features
@@ -31,7 +58,7 @@ public enum Tasks {
     A task uses what is called a "kernel object" that actually carries out the task's work.
     This is any object adoping the `TaskKernel` protocol.
  
-    A task cna have "continuation tasks" associated with it
+    A task can have "continuation tasks" associated with it. s
  
 */
 public final class Task<ResultType> : TaskOperation {
