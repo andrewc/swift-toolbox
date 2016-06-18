@@ -7,11 +7,16 @@
 		<key>SwiftToolbox.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>491545491D1276AC00CBFCFF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>49E92FED1CC483D300E90A0C</key>
 		<dict>
 			<key>primary</key>

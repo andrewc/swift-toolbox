@@ -14,8 +14,9 @@
 		491D8FA11D0ACE7700595FC5 /* ErrorRecovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491D8F9C1D0ACE7700595FC5 /* ErrorRecovery.swift */; };
 		491D8FA21D0ACE7700595FC5 /* ExceptionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491D8F9D1D0ACE7700595FC5 /* ExceptionType.swift */; };
 		491D8FA31D0ACE7700595FC5 /* InformativeErrrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491D8F9E1D0ACE7700595FC5 /* InformativeErrrorType.swift */; };
+		498B596E1D15A2A400657276 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4994AD1F1D00639900954DBE /* Currency.swift */; };
+		498B596F1D15A2A400657276 /* WaitableEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4994AD3D1D00639900954DBE /* WaitableEvent.swift */; };
 		4994AD501D00639900954DBE /* BasicArithmeticType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4994AD1E1D00639900954DBE /* BasicArithmeticType.swift */; };
-		4994AD511D00639900954DBE /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4994AD1F1D00639900954DBE /* Currency.swift */; };
 		4994AD521D00639900954DBE /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4994AD201D00639900954DBE /* Date.swift */; };
 		4994AD531D00639900954DBE /* JSONValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4994AD211D00639900954DBE /* JSONValue.swift */; };
 		4994AD541D00639900954DBE /* MappingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4994AD221D00639900954DBE /* MappingModel.swift */; };
@@ -37,7 +38,6 @@
 		4994AD661D00639900954DBE /* TaskScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4994AD391D00639900954DBE /* TaskScheduler.swift */; };
 		4994AD671D00639900954DBE /* TaskStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4994AD3A1D00639900954DBE /* TaskStatus.swift */; };
 		4994AD681D00639900954DBE /* Waitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4994AD3C1D00639900954DBE /* Waitable.swift */; };
-		4994AD691D00639900954DBE /* WaitableEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4994AD3D1D00639900954DBE /* WaitableEvent.swift */; };
 		4994AD6A1D00639900954DBE /* AlertPresentationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4994AD3F1D00639900954DBE /* AlertPresentationUtil.swift */; };
 		4994AD6B1D00639900954DBE /* AutoLayoutAnimationAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4994AD401D00639900954DBE /* AutoLayoutAnimationAssistant.swift */; };
 		4994AD6C1D00639900954DBE /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4994AD411D00639900954DBE /* Theme.swift */; };
@@ -344,8 +344,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4994AD511D00639900954DBE /* Currency.swift in Sources */,
-				4994AD691D00639900954DBE /* WaitableEvent.swift in Sources */,
+				498B596E1D15A2A400657276 /* Currency.swift in Sources */,
+				498B596F1D15A2A400657276 /* WaitableEvent.swift in Sources */,
 				4994AD531D00639900954DBE /* JSONValue.swift in Sources */,
 				4994AD751D00639900954DBE /* StringLocalization.swift in Sources */,
 				491D8F9F1D0ACE7700595FC5 /* AggregateError.swift in Sources */,
